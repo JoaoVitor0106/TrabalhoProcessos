@@ -41,8 +41,11 @@ int carregar_processos(Processo *processos, const char *nome_arquivo) {
         remover_chaves(token);
         processos[i].id_classe = atoi(token);
 
-        // Ignorar o id_assunto
         token = strtok(NULL, ",");
+        remover_chaves(token);
+        processos[i].num_assuntos = 1;
+        processos[i].id_assuntos = malloc(sizeof(int));
+        processos[i].id_assuntos[0] = atoi(token);
 
         token = strtok(NULL, ",");
         processos[i].ano_eleicao = atoi(token);
